@@ -1,0 +1,51 @@
+# Machine learning and deep learning
+
+- **Machine learning:** Turning many kinds of data (images, text, tables, audio, video) into numbers and then finding patterns in those numbers using algorithms. [page:1]  
+- ML uses code plus math: the code triggers the mathematical operations that detect patterns. [page:1]  
+- **Deep learning:** A subset of machine learning, usually involving neural networks with many layers, though in practice the terms are often used interchangeably. [page:1]
+
+---
+
+## Traditional programming vs machine learning
+
+- Traditional programming: you provide **inputs + explicit rules** and the program produces outputs. Example: a step‑by‑step recipe for your grandmother’s roast chicken (cut vegetables, season chicken, preheat oven, cook, etc.). [page:1]  
+- Machine learning: you provide **inputs + desired outputs (labels)** and the algorithm **learns the rules/patterns** that map inputs to outputs. This setup is called **supervised learning**. [page:1]
+
+---
+
+## Why use machine or deep learning?
+
+- Hand‑coding all rules can be too hard or impossible for complex tasks, such as self‑driving cars (backing out, turning, parking, reacting to traffic, etc.). [page:1]  
+- Machine learning is useful when there are large, messy datasets and patterns are not obvious, and a rule list would be extremely long. [page:1]  
+- You can, in principle, apply ML to almost anything if you can convert it to numbers, but that does not mean you should always use it. [page:1]
+
+---
+
+## Google’s rule #1 of machine learning
+
+- If you can solve the problem with a **simple rule‑based system**, prefer that instead of machine learning. [page:1]  
+- Use ML or deep learning when rules are too numerous, too complex, or changing frequently. [page:1]
+
+---
+
+## When deep learning is a good fit
+
+- Problems with long lists of rules:  
+  - Example: recognizing many food types from images (like a dataset with 101 food classes) where it is hard to describe exactly what each food looks like and what “not that food” looks like. [page:1]  
+- Continually changing environments:  
+  - Models can be retrained or updated with new data and adapt to new scenarios (for example, driving in new cities). [page:1]  
+- Large datasets and complex patterns:  
+  - Deep learning shines in vision, language, audio, and other domains with lots of data and complex structures. [page:1]
+
+---
+
+## When deep learning is typically not ideal
+
+- When you need strong explainability:  
+  - Deep learning models often have millions of parameters (weights and biases), which are not easy for humans to interpret. [page:1]  
+- When a traditional/simple solution works:  
+  - A small set of clear rules is often safer and easier to maintain. [page:1]  
+- When errors are unacceptable:  
+  - Deep learning is probabilistic and can be wrong; this is risky where any error is critical. [page:1]  
+- When you have very little data:  
+  - Deep learning usually prefers more data; for tiny datasets, classic ML or rules can be better, even though there are techniques that help with small data. [page:1]
