@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PyTorch Tensor Mastery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --sidebar-bg: #fbfbfa;
+            --text-main: #37352f;
+            --text-light: #73726e;
+            --border: #edece9;
+            --accent-blue: #2383e2;
+            --callout-blue: #ebf5fe;
+            --callout-yellow: #fff9e6;
+            --code-bg: #f7f6f3;
+            --notion-red: #eb5757;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            margin: 0;
+            display: flex;
+            background: var(--bg);
+        }
+
+        /* Sidebar Mockup */
+        .sidebar {
+            width: 240px;
+            background: var(--sidebar-bg);
+            height: 100vh;
+            border-right: 1px solid var(--border);
+            padding: 20px 15px;
+            position: fixed;
+            display: none; /* Hidden for mobile/copy-paste simplicity */
+        }
+
+        @media (min-width: 1000px) {
+            .sidebar { display: block; }
+            .container { margin-left: 260px; }
+        }
+
+        .container {
+            max-width: 900px;
+            padding: 60px 40px;
+            width: 100%;
+        }
+
+        /* Notion Typography */
+        h1 { font-size: 40px; font-weight: 700; margin-bottom: 10px; }
+        h2 { font-size: 28px; font-weight: 600; margin-top: 40px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+        h3 { font-size: 20px; font-weight: 600; margin-top: 30px; }
+
+        /* Callouts */
+        .callout {
+            display: flex;
+            padding: 16px;
+            border-radius: 4px;
+            margin: 20px 0;
+            align-items: flex-start;
+        }
+        .callout-info { background: var(--callout-blue); }
+        .callout-warning { background: var(--callout-yellow); }
+        .icon { margin-right: 12px; font-size: 1.2em; }
+
+        /* Tables */
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+        th { text-align: left; padding: 10px; background: var(--sidebar-bg); border: 1px solid var(--border); color: var(--text-light); }
+        td { padding: 10px; border: 1px solid var(--border); }
+
+        /* Code Blocks */
+        pre {
+            background: var(--code-bg);
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            position: relative;
+        }
+        code { font-family: 'Fira Code', monospace; font-size: 14px; }
+        .inline-code { background: var(--code-bg); color: var(--notion-red); padding: 2px 4px; border-radius: 4px; }
+
+        /* Hierarchy visualizer */
+        .dimension-box {
+            border-left: 4px solid var(--accent-blue);
+            padding-left: 20px;
+            margin: 20px 0;
+        }
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .property-card {
+            border: 1px solid var(--border);
+            padding: 15px;
+            border-radius: 6px;
+        }
+        .property-card strong { display: block; color: var(--accent-blue); margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <p style="font-weight: 600; color: var(--text-light);">Learning PyTorch</p>
+        <ul style="list-style: none; padding: 0; font-size: 14px; color: var(--text-main);">
+            <li style="padding: 5px 0;">🏠 Introduction</li>
+            <li style="padding: 5px 0;">🔢 Tensors Basics</li>
+            <li style="padding: 5px 0;">🎲 Random Tensors</li>
+            <li style="padding: 5px 0;">💾 Data Types</li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div style="font-size: 14px; color: var(--text-light); margin-bottom: 10px;">Deep Learning / Foundations</div>
+        <h1>Introduction to Tensors</h1>
+        
+        <p>Tensors are the multi-dimensional arrays that power neural networks. In PyTorch, they are optimized for <strong>Automatic Differentiation</strong> and <strong>Hardware Acceleration (GPU/TPU)</strong>.</p>
+
+        
+
+        <h2>1. The Geometry of Data</h2>
+        <div class="dimension-box">
+            <p><strong>Scalar (0-D):</strong> A single number. <code>ndim = 0</code>.</p>
+            <p><strong>Vector (1-D):</strong> A list of numbers. <code>ndim = 1</code>. Often used for bias terms.</p>
+            <p><strong>Matrix (2-D):</strong> Rows and Columns. <code>ndim = 2</code>. Standard for weight matrices.</p>
+            <p><strong>Tensor (n-D):</strong> Multi-dimensional arrays. Used for <strong>Images</strong> [C, H, W] or <strong>Video</strong> [F, C, H, W].</p>
+        </div>
+
+        <h2>2. Tensor Creation & Attributes</h2>
+        <p>When you create a tensor, three attributes determine if your code will run or crash:</p>
+        
+        <div class="property-grid">
+            <div class="property-card">
+                <strong>Dtype</strong>
+                The precision of numbers (e.g., float32, int64).
+            </div>
+            <div class="property-card">
+                <strong>Device</strong>
+                Where it is stored (CPU vs CUDA).
+            </div>
+            <div class="property-card">
+                <strong>Shape</strong>
+                The dimensions (Size) of the data.
+            </div>
+        </div>
+
+        <pre><code>import torch
+
+# The proper way to initialize a 4D Tensor (Common in CV)
+TENSOR = torch.tensor([[[[1, 2, 3],
+                         [7, 8, 9],
+                         [8, 9, 5]]]])
+
+print(f"Dimensions: {TENSOR.ndim}")
+print(f"Shape: {TENSOR.shape}") # torch.Size([1, 1, 3, 3])</code></pre>
+
+        <div class="callout callout-info">
+            <span class="icon">💡</span>
+            <div>
+                <strong>Pro Tip:</strong> Use <code class="inline-code">.ndim</code> to find the number of dimensions and <code class="inline-code">.shape</code> to see the specific size of those dimensions.
+            </div>
+        </div>
+
+        <h2>3. Initializing Tensors</h2>
+        <p>In Deep Learning, we rarely write data by hand. We use helper functions:</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Function</th>
+                    <th>Result</th>
+                    <th>Typical Use Case</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>torch.rand(3, 4)</code></td>
+                    <td>Random numbers [0, 1)</td>
+                    <td>Initializing model weights</td>
+                </tr>
+                <tr>
+                    <td><code>torch.zeros(10)</code></td>
+                    <td>Fill with 0.0</td>
+                    <td>Masking or padding</td>
+                </tr>
+                <tr>
+                    <td><code>torch.arange(0, 10)</code></td>
+                    <td>Range 0 to 9</td>
+                    <td>Creating index lists</td>
+                </tr>
+                <tr>
+                    <td><code>torch.zeros_like(x)</code></td>
+                    <td>Zeros with x's shape</td>
+                    <td>Keeping consistency between layers</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>4. Data Types (Precision vs Performance)</h2>
+        <p>PyTorch defaults to <strong>Float32</strong>. However, using <strong>Float16</strong> can make models 2x faster on modern GPUs (Half-precision training).</p>
+
+        
+
+        <div class="callout callout-warning">
+            <span class="icon">⚠️</span>
+            <div>
+                <strong>Common Mistake:</strong> <code class="inline-code">torch.range()</code> is deprecated! Always use <code class="inline-code">torch.arange()</code> to avoid endpoint confusion and warnings.
+            </div>
+        </div>
+
+        <h2>5. The "Big Three" Troubleshooting Checklist</h2>
+        <p>If your PyTorch code crashes, it is almost certainly one of these three things:</p>
+        <ol>
+            <li><strong>Shape Mismatch:</strong> You are trying to multiply a [3x2] matrix by a [5x2].</li>
+            <li><strong>Device Mismatch:</strong> One tensor is on the CPU and the other is on the GPU.</li>
+            <li><strong>Dtype Mismatch:</strong> You are trying to add a <code>LongTensor</code> to a <code>FloatTensor</code>.</li>
+        </ol>
+
+        <pre><code># Fixing a type mismatch
+x = torch.tensor([1, 2, 3]) # int64
+y = x.type(torch.float32)   # Now float32
+print(y.dtype)</code></pre>
+
+    </div>
+</body>
+</html>
