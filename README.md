@@ -1,8 +1,3 @@
-Absolutely — here’s a **professional, clear, and engaging `README.md`** you can use (or adapt) for your **Learning_PyTorch** repository. It explains what the project is, how to set it up, how to follow along with your resources (like the YouTube video and official docs), and gives others enough context to use or contribute to your work.
-
----
-
-````markdown
 # 🚀 Learning PyTorch
 
 Welcome to **Learning PyTorch** — a beginner-friendly repository for learning PyTorch step by step with clear code examples and hands-on notebooks!
@@ -151,18 +146,3 @@ Happy learning PyTorch! 🧠🔥
 
 ```
 
----
-
-### 🧠 Tips for Next
-
-- Add a **Table of Contents** if your README gets long. :contentReference[oaicite:5]{index=5}  
-- Include **badges** (build status, PyTorch version, Python version).  
-- Later, add examples of outputs or screenshots for visual appeal.
-
-If you want, I can generate **badges** and a **TOC version** too — just ask!
-::contentReference[oaicite:6]{index=6}
-```
-
-[1]: https://docs.pytorch.org/tutorials/index.html?utm_source=chatgpt.com "Welcome to PyTorch Tutorials"
-[2]: https://github.com/ritchieng/the-incredible-pytorch?utm_source=chatgpt.com "ritchieng/the-incredible-pytorch"
-[3]: https://www.geeksforgeeks.org/deep-learning/how-to-structure-a-pytorch-project/?utm_source=chatgpt.com "How to structure a PyTorch Project"
