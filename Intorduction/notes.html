@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PyTorch Learning Guide - Complete Reference</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #2d3748;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 360px;
+            height: 100vh;
+            background: linear-gradient(180deg, #1a202c 0%, #2d3748 100%);
+            padding: 20px;
+            color: white;
+            overflow-y: auto;
+            transform: translateX(-360px);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+            box-shadow: 5px 0 25px rgba(0,0,0,0.4);
+        }
+
+        .sidebar.open {
+            transform: translateX(0);
+        }
+
+        .toggle-btn {
+            position: fixed;
+            left: 20px;
+            top: 20px;
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .toggle-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+        }
+
+        .toggle-btn span {
+            width: 28px;
+            height: 3px;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .toggle-btn.open span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .toggle-btn.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .toggle-btn.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+
+        .sidebar h1 {
+            font-size: 28px;
+            margin: 20px 0 10px 0;
+            color: #ffd700;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .sidebar > p {
+            font-size: 13px;
+            color: #a0aec0;
+            text-align: center;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .chapter {
+            margin-bottom: 30px;
+        }
+
+        .chapter-title {
+            font-size: 15px;
+            font-weight: bold;
+            color: #ffd700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: rgba(255,215,0,0.1);
+            border-radius: 8px;
+        }
+
+        .nav-item {
+            padding: 14px 18px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s;
+            font-size: 14px;
+            border-left: 4px solid transparent;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .nav-item:hover {
+            background: rgba(255,255,255,0.1);
+            border-left-color: #ffd700;
+            transform: translateX(8px);
+        }
+
+        .nav-item.active {
+            background: rgba(255,215,0,0.2);
+            border-left-color: #ffd700;
+            font-weight: bold;
+        }
+
+        .content {
+            margin-left: 0;
+            padding: 90px 60px 60px 110px;
+            width: 100%;
+            transition: margin-left 0.3s ease;
+        }
+
+        .content-inner {
+            max-width: 1300px;
+            background: white;
+            border-radius: 25px;
+            padding: 60px;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.3);
+            min-height: calc(100vh - 180px);
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.6s;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 44px;
+            margin-bottom: 30px;
+            border-bottom: 5px solid #ffd700;
+            padding-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        h3 {
+            color: #764ba2;
+            font-size: 30px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h4 {
+            color: #4a5568;
+            font-size: 22px;
+            margin-top: 28px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        p {
+            line-height: 2;
+            margin-bottom: 20px;
+            color: #4a5568;
+            font-size: 17px;
+        }
+
+        code {
+            background: #f7fafc;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            color: #e53e3e;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        pre {
+            background: #2d3748;
+            color: #f7fafc;
+            padding: 28px;
+            border-radius: 15px;
+            overflow-x: auto;
+            margin: 30px 0;
+            border-left: 6px solid #ffd700;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        pre code {
+            background: transparent;
+            color: #f7fafc;
+            padding: 0;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 18px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        tr:hover {
+            background: #f7fafc;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        ul, ol {
+            margin-left: 40px;
+            margin-bottom: 22px;
+            line-height: 2.1;
+        }
+
+        li {
+            margin-bottom: 12px;
+            color: #4a5568;
+        }
+
+        .note {
+            background: linear-gradient(135deg, #fff5e6 0%, #fffbf0 100%);
+            border-left: 6px solid #ffd700;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .note strong {
+            color: #d97706;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .warning {
+            background: linear-gradient(135deg, #ffe6e6 0%, #fff0f0 100%);
+            border-left: 6px solid #e53e3e;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .warning strong {
+            color: #e53e3e;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #e6f7ff 0%, #f0f9ff 100%);
+            border-left: 6px solid #3b82f6;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .info-box strong {
+            color: #3b82f6;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .visual-diagram {
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            border: 3px solid #e2e8f0;
+            border-radius: 15px;
+            padding: 35px;
+            margin: 35px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .tensor-visual {
+            display: inline-block;
+            margin: 25px;
+            text-align: center;
+        }
+
+        .scalar-box {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 24px;
+            margin: 0 auto 15px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+        }
+
+        .vector-box {
+            display: flex;
+            gap: 8px;
+            margin: 0 auto 15px;
+            justify-content: center;
+        }
+
+        .vector-box > div {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 18px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+        }
+
+        .matrix-box {
+            display: inline-grid;
+            grid-template-columns: repeat(3, 55px);
+            gap: 8px;
+            margin: 0 auto 15px;
+        }
+
+        .matrix-box > div {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 18px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+        }
+
+        .key-concept {
+            background: linear-gradient(135deg, #e0e7ff, #f0f4ff);
+            padding: 28px;
+            border-radius: 12px;
+            margin: 30px 0;
+            border-left: 6px solid #6366f1;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .breadcrumb {
+            color: #a0aec0;
+            font-size: 14px;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .emoji-icon {
+            font-size: 28px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 14px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #764ba2, #667eea);
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 80px 20px 40px 20px;
+            }
+
+            .content-inner {
+                padding: 30px 20px;
+            }
+
+            h2 {
+                font-size: 32px;
+            }
+
+            h3 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="toggle-btn" onclick="toggleSidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div class="container">
+        <div class="sidebar" id="sidebar">
+            <h1>📚 PyTorch Guide</h1>
+            <p>Complete Interactive Learning Resource</p>
+
+            <div class="chapter">
+                <div class="chapter-title">📖 Chapter 1: Fundamentals</div>
+
+                <div class="nav-item active" onclick="showSection('intro')">
+                    <span>🎯</span> Introduction to Tensors
+                </div>
+                <div class="nav-item" onclick="showSection('creating')">
+                    <span>⚡</span> Creating Tensors
+                </div>
+                <div class="nav-item" onclick="showSection('random')">
+                    <span>🎲</span> Random Tensors & Why
+                </div>
+                <div class="nav-item" onclick="showSection('dtypes')">
+                    <span>🔢</span> Data Types Deep Dive
+                </div>
+                <div class="nav-item" onclick="showSection('attributes')">
+                    <span>📊</span> Tensor Attributes
+                </div>
+                <div class="nav-item" onclick="showSection('operations')">
+                    <span>➕</span> Arithmetic Operations
+                </div>
+                <div class="nav-item" onclick="showSection('aggregation')">
+                    <span>📉</span> Aggregation Operations
+                </div>
+                <div class="nav-item" onclick="showSection('matrix')">
+                    <span>🔲</span> Matrix Multiplication
+                </div>
+                <div class="nav-item" onclick="showSection('manipulation')">
+                    <span>🔄</span> Shape Manipulation
+                </div>
+                <div class="nav-item" onclick="showSection('indexing')">
+                    <span>🎯</span> Indexing & Slicing
+                </div>
+                <div class="nav-item" onclick="showSection('numpy')">
+                    <span>🔗</span> PyTorch ↔ NumPy
+                </div>
+                <div class="nav-item" onclick="showSection('reproducibility')">
+                    <span>🔒</span> Reproducibility
+                </div>
+                <div class="nav-item" onclick="showSection('gpu')">
+                    <span>🚀</span> GPU Acceleration
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="content-inner">
+
+                <!-- Introduction Section -->
+                <div class="section active" id="intro">
+                    <div class="breadcrumb">Chapter 1: PyTorch Fundamentals</div>
+                    <h2><span class="emoji-icon">🎯</span> Introduction to Tensors</h2>
+
+                    <h3><span class="emoji-icon">💡</span> What is a Tensor?</h3>
+                    <p>In PyTorch, a <strong>Tensor</strong> is the fundamental building block for all data and computations in deep learning. It's a sophisticated multi-dimensional array that serves as the backbone of neural networks.</p>
+
+                    <div class="key-concept">
+                        <h4>🌟 Two Superpowers of PyTorch Tensors</h4>
+                        <ol>
+                            <li><strong>GPU Acceleration:</strong> Tensors can seamlessly run on GPUs (Graphics Processing Units) for massive computational speedups—often 10-100x faster than CPUs. This makes them ideal for training complex deep learning models.</li>
+                            <li><strong>Automatic Differentiation:</strong> Tensors can track all mathematical operations performed on them, enabling automatic gradient calculation for backpropagation. This is the magic that allows neural networks to learn from data.</li>
+                        </ol>
+                    </div>
+
+                    <h3><span class="emoji-icon">📐</span> The Hierarchy of Dimensions</h3>
+                    <p>Understanding tensor dimensions is absolutely crucial for working with PyTorch. Think of dimensions as the number of "directions" your data can move in.</p>
+
+                    <div class="visual-diagram">
+                        <h4 style="margin-bottom: 30px;">Visual Representation of Tensor Dimensions</h4>
+
+                        <div class="tensor-visual">
+                            <div class="scalar-box">7</div>
+                            <p><strong>0-D Tensor (Scalar)</strong></p>
+                            <p>Just a single number<br>No dimensions to navigate</p>
+                        </div>
+
+                        <div class="tensor-visual">
+                            <div class="vector-box">
+                                <div>1</div>
+                                <div>2</div>
+                                <div>3</div>
+                            </div>
+                            <p><strong>1-D Tensor (Vector)</strong></p>
+                            <p>A list of numbers<br>One direction to move</p>
+                        </div>
+
+                        <div class="tensor-visual">
+                            <div class="matrix-box">
+                                <div>1</div><div>2</div><div>3</div>
+                                <div>4</div><div>5</div><div>6</div>
+                            </div>
+                            <p><strong>2-D Tensor (Matrix)</strong></p>
+                            <p>Grid of numbers<br>Rows and columns</p>
+                        </div>
+                    </div>
+
+                    <h4>Complete Dimension Reference Table</h4>
+                    <table>
+                        <tr>
+                            <th>Dimension</th>
+                            <th>Common Name</th>
+                            <th>Example Shape</th>
+                            <th>Real-World Use Cases</th>
+                        </tr>
+                        <tr>
+                            <td>0-D</td>
+                            <td>Scalar</td>
+                            <td><code>()</code></td>
+                            <td>Loss values, accuracy metrics, single predictions</td>
+                        </tr>
+                        <tr>
+                            <td>1-D</td>
+                            <td>Vector</td>
+                            <td><code>(n,)</code></td>
+                            <td>Time series data, word embeddings, feature vectors</td>
+                        </tr>
+                        <tr>
+                            <td>2-D</td>
+                            <td>Matrix</td>
+                            <td><code>(m, n)</code></td>
+                            <td>Grayscale images, tabular data, spreadsheets</td>
+                        </tr>
+                        <tr>
+                            <td>3-D</td>
+                            <td>3D Tensor</td>
+                            <td><code>(b, m, n)</code></td>
+                            <td>RGB images (H×W×C), sequences of vectors</td>
+                        </tr>
+                        <tr>
+                            <td>4-D</td>
+                            <td>4D Tensor</td>
+                            <td><code>(b, c, h, w)</code></td>
+                            <td>Batches of RGB images (most common in CNNs)</td>
+                        </tr>
+                        <tr>
+                            <td>5-D+</td>
+                            <td>N-D Tensor</td>
+                            <td><code>(b, c, d, h, w)</code></td>
+                            <td>Video batches, 3D medical imaging (CT/MRI scans)</td>
+                        </tr>
+                    </table>
+
+                    <div class="info-box">
+                        <strong>📌 Key Insight:</strong>
+                        In Deep Learning, we use the word "Tensor" to refer to arrays of any dimension. The term encompasses everything from scalars (0-D) to high-dimensional data structures (5-D and beyond). When someone says "tensor," they could mean anything from a single number to a complex multi-dimensional array!
+                    </div>
+
+                    <h3><span class="emoji-icon">🔍</span> Understanding .ndim Attribute</h3>
+                    <p>The <code>.ndim</code> attribute tells you the number of dimensions (or axes) a tensor has. A simple trick: <strong>count the opening brackets <code>[</code> before you reach the first number</strong>.</p>
+
+                    <pre><code>import torch
+
+# 0-D: no brackets around the number
+scalar = torch.tensor(7)
+print(scalar.ndim)  # 0
+
+# 1-D: one bracket
+vector = torch.tensor([1, 2, 3])
+print(vector.ndim)  # 1
+
+# 2-D: two brackets
+matrix = torch.tensor([[1, 2], [3, 4]])
+print(matrix.ndim)  # 2
+
+# 4-D: four brackets
+tensor_4d = torch.tensor([[[[1]]]])
+print(tensor_4d.ndim)  # 4</code></pre>
+                </div>
+
+                <!-- Creating Tensors Section -->
+                <div class="section" id="creating">
+                    <div class="breadcrumb">Chapter 1: PyTorch Fundamentals > Creating Tensors</div>
+                    <h2><span class="emoji-icon">⚡</span> Creating Tensors</h2>
+
+                    <p>There are many ways to create tensors in PyTorch. Let's explore each method in detail.</p>
+
+                    <h3><span class="emoji-icon">🔢</span> Scalar (0-D Tensor)</h3>
+                    <p>A scalar is the simplest tensor—just a single number with zero dimensions. It represents a magnitude without direction.</p>
+
+                    <pre><code>import torch
+
+scalar = torch.tensor(9)
+print(scalar)              # tensor(9)
+print(scalar.ndim)         # 0 (zero dimensions)
+print(scalar.item())       # 9 (convert to Python number)
+
+# You can't index a scalar
+# scalar[0]  # This would raise an error!</code></pre>
+
+                    <div class="note">
+                        <strong>💡 Understanding .item():</strong>
+                        The <code>.item()</code> method extracts the Python number from a scalar tensor. This is useful when you need to use the value in regular Python code or print it without the "tensor()" wrapper.
+                    </div>
+
+                    <h3><span class="emoji-icon">📏</span> Vector (1-D Tensor)</h3>
+                    <p>A vector is a 1-dimensional array of numbers. Unlike scalars, vectors have both magnitude and direction.</p>
+
+                    <pre><code>vector = torch.tensor([9, 8, 7])
+print(vector)              # tensor([9, 8, 7])
+print(vector.ndim)         # 1
+print(vector.shape)        # torch.Size([3])
+print(vector[0])           # tensor(9) - first element
+print(vector[-1])          # tensor(7) - last element</code></pre>
+
+                    <h3><span class="emoji-icon">🔲</span> Matrix (2-D Tensor)</h3>
+                    <p>A matrix is a 2-dimensional grid organized in rows and columns. This is one of the most common tensor types.</p>
+
+                    <pre><code>MATRIX = torch.tensor([[1, 2, 3],
+                       [4, 5, 6]])
+
+print(MATRIX)
+# tensor([[1, 2, 3],
+#         [4, 5, 6]])
+
+print(MATRIX.ndim)         # 2
+print(MATRIX.shape)        # torch.Size([2, 3]) → 2 rows, 3 columns
+print(MATRIX[0])           # tensor([1, 2, 3]) → first row
+print(MATRIX[1])           # tensor([4, 5, 6]) → second row
+print(MATRIX[0, 1])        # tensor(2) → element at row 0, col 1</code></pre>
+
+                    <h3><span class="emoji-icon">📦</span> Higher-Dimensional Tensors (3-D and Beyond)</h3>
+                    <p>For 3-D and higher tensors, remember the bracket-counting trick!</p>
+
+                    <pre><code>TENSOR = torch.tensor([[[[1, 2, 3],
+                          [7, 8, 9],
+                          [8, 9, 5]]]])
+
+print(TENSOR.ndim)         # 4
+print(TENSOR.shape)        # torch.Size([1, 1, 3, 3])
+
+# Breaking down the shape [1, 1, 3, 3]:
+# - First [1]: Batch dimension (1 sample)
+# - Second [1]: Channel dimension (1 channel, like grayscale)
+# - Third [3]: Height (3 pixels tall)
+# - Fourth [3]: Width (3 pixels wide)</code></pre>
+
+                    <div class="key-concept">
+                        <h4>🎯 Understanding Shape [1, 1, 3, 3] in Image Context</h4>
+                        <p>This shape is extremely common in computer vision:</p>
+                        <ul>
+                            <li><strong>Batch Size = 1:</strong> Processing 1 image at a time</li>
+                            <li><strong>Channels = 1:</strong> Grayscale image (RGB would be 3)</li>
+                            <li><strong>Height = 3:</strong> Image is 3 pixels tall</li>
+                            <li><strong>Width = 3:</strong> Image is 3 pixels wide</li>
+                        </ul>
+                        <p>A typical RGB image batch might have shape <code>[32, 3, 224, 224]</code> meaning 32 images, 3 color channels, 224×224 pixels each.</p>
+                    </div>
+
+                    <h3><span class="emoji-icon">0️⃣</span> Zeros and Ones Tensors</h3>
+                    <p>Create tensors filled with zeros or ones—useful for initialization and masking.</p>
+
+                    <pre><code># Create tensors filled with zeros
+zeros = torch.zeros(3, 4)      # 3×4 matrix of zeros
+print(zeros.dtype)             # torch.float32 (default)
+
+# Create tensors filled with ones
+ones = torch.ones(3, 4)        # 3×4 matrix of ones
+print(ones.dtype)              # torch.float32
+
+# Useful property: multiplying by zeros
+result = zeros * torch.rand(3, 4)
+print(result)                  # All zeros!
+
+# Multiplying by ones (identity operation)
+result = ones * torch.rand(3, 4)
+print(result)                  # Returns the random tensor unchanged</code></pre>
+
+                    <h3><span class="emoji-icon">📊</span> Creating Tensor-like Structures</h3>
+                    <p>Create new tensors with the same shape and properties as existing ones.</p>
+
+                    <pre><code>one_to_ten = torch.arange(1, 11)
+print(one_to_ten)              # tensor([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+
+# Create zeros with same shape and dtype
+ten_zeros = torch.zeros_like(input=one_to_ten)
+print(ten_zeros)               # tensor([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+# Also works with ones
+ten_ones = torch.ones_like(input=one_to_ten)
+print(ten_ones)                # tensor([1, 1, 1, 1, 1, 1, 1, 1, 1, 1])</code></pre>
+
+                    <h3><span class="emoji-icon">🔢</span> Range Tensors with torch.arange()</h3>
+                    <pre><code># Create sequence from 1 to 10 (11 is exclusive)
+seq = torch.arange(1, 11)
+print(seq)                     # tensor([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+
+# With step parameter
+seq_step = torch.arange(0, 10, 2)
+print(seq_step)                # tensor([0, 2, 4, 6, 8])
+
+# Floating point ranges
+float_seq = torch.arange(0, 1, 0.1)
+print(float_seq)               # tensor([0.0, 0.1, 0.2, ..., 0.9])</code></pre>
+
+                    <div class="warning">
+                        <strong>⚠️
