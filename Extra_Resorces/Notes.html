@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,7 +40,7 @@
             transform: translateX(-360px);
             transition: transform 0.3s ease;
             z-index: 1000;
-            box-shadow: 5px 0 25px rgba(0,0,0,0.4);
+            box-shadow: 5px 0 25px rgba(0, 0, 0, 0.4);
         }
 
         .sidebar.open {
@@ -63,12 +64,12 @@
             align-items: center;
             gap: 6px;
             transition: all 0.3s;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         .toggle-btn:hover {
             transform: scale(1.05);
-            box-shadow: 0 6px 25px rgba(0,0,0,0.4);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
         }
 
         .toggle-btn span {
@@ -96,10 +97,10 @@
             margin: 20px 0 10px 0;
             color: #ffd700;
             text-align: center;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
-        .sidebar > p {
+        .sidebar>p {
             font-size: 13px;
             color: #a0aec0;
             text-align: center;
@@ -110,9 +111,9 @@
         .author-info {
             margin-top: 30px;
             padding: 20px;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 10px;
-            border: 1px solid rgba(255,215,0,0.2);
+            border: 1px solid rgba(255, 215, 0, 0.2);
         }
 
         .author-info h3 {
@@ -142,7 +143,7 @@
             align-items: center;
             gap: 8px;
             padding: 8px 15px;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 8px;
             color: #a0aec0;
             text-decoration: none;
@@ -151,7 +152,7 @@
         }
 
         .social-link:hover {
-            background: rgba(255,215,0,0.2);
+            background: rgba(255, 215, 0, 0.2);
             color: #ffd700;
             transform: translateY(-2px);
         }
@@ -228,7 +229,7 @@
             align-items: center;
             gap: 10px;
             padding: 10px;
-            background: rgba(255,215,0,0.1);
+            background: rgba(255, 215, 0, 0.1);
             border-radius: 8px;
         }
 
@@ -243,17 +244,17 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            background: rgba(255,255,255,0.02);
+            background: rgba(255, 255, 255, 0.02);
         }
 
         .nav-item:hover {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             border-left-color: #ffd700;
             transform: translateX(8px);
         }
 
         .nav-item.active {
-            background: rgba(255,215,0,0.2);
+            background: rgba(255, 215, 0, 0.2);
             border-left-color: #ffd700;
             font-weight: bold;
         }
@@ -270,7 +271,7 @@
             background: white;
             border-radius: 25px;
             padding: 60px;
-            box-shadow: 0 25px 70px rgba(0,0,0,0.3);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
             min-height: calc(100vh - 180px);
         }
 
@@ -284,8 +285,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         h2 {
@@ -343,7 +351,7 @@
             margin: 30px 0;
             border-left: 6px solid #ffd700;
             position: relative;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         pre code {
@@ -358,12 +366,13 @@
             width: 100%;
             border-collapse: collapse;
             margin: 30px 0;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             overflow: hidden;
         }
 
-        th, td {
+        th,
+        td {
             padding: 18px;
             text-align: left;
             border-bottom: 1px solid #e2e8f0;
@@ -384,7 +393,8 @@
             border-bottom: none;
         }
 
-        ul, ol {
+        ul,
+        ol {
             margin-left: 40px;
             margin-bottom: 22px;
             line-height: 2.1;
@@ -401,7 +411,7 @@
             padding: 25px;
             margin: 30px 0;
             border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         }
 
         .note strong {
@@ -417,7 +427,7 @@
             padding: 25px;
             margin: 30px 0;
             border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         }
 
         .warning strong {
@@ -433,7 +443,7 @@
             padding: 25px;
             margin: 30px 0;
             border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         }
 
         .info-box strong {
@@ -450,7 +460,7 @@
             padding: 35px;
             margin: 35px 0;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
         .tensor-visual {
@@ -471,7 +481,7 @@
             font-weight: bold;
             font-size: 24px;
             margin: 0 auto 15px;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
         }
 
         .vector-box {
@@ -481,7 +491,7 @@
             justify-content: center;
         }
 
-        .vector-box > div {
+        .vector-box>div {
             width: 55px;
             height: 55px;
             background: linear-gradient(135deg, #667eea, #764ba2);
@@ -492,7 +502,7 @@
             border-radius: 8px;
             font-weight: bold;
             font-size: 18px;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
         }
 
         .matrix-box {
@@ -502,7 +512,7 @@
             margin: 0 auto 15px;
         }
 
-        .matrix-box > div {
+        .matrix-box>div {
             width: 55px;
             height: 55px;
             background: linear-gradient(135deg, #667eea, #764ba2);
@@ -513,7 +523,7 @@
             border-radius: 8px;
             font-weight: bold;
             font-size: 18px;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
         }
 
         .key-concept {
@@ -522,7 +532,7 @@
             border-radius: 12px;
             margin: 30px 0;
             border-left: 6px solid #6366f1;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
         }
 
         .breadcrumb {
@@ -572,6 +582,7 @@
         }
     </style>
 </head>
+
 <body>
     <button class="toggle-btn" onclick="toggleSidebar()">
         <span></span>
@@ -634,13 +645,15 @@
                 <div class="social-links">
                     <a href="https://github.com/sujal910" target="_blank" class="social-link">
                         <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                            <path
+                                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
                         </svg>
                         GitHub
                     </a>
                     <a href="https://x.com/SujalPareek910" target="_blank" class="social-link">
                         <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            <path
+                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                         </svg>
                         Twitter
                     </a>
@@ -657,18 +670,25 @@
                     <h2><span class="emoji-icon">🎯</span> Introduction to Tensors</h2>
 
                     <h3><span class="emoji-icon">💡</span> What is a Tensor?</h3>
-                    <p>In PyTorch, a <strong>Tensor</strong> is the fundamental building block for all data and computations in deep learning. It's a sophisticated multi-dimensional array that serves as the backbone of neural networks.</p>
+                    <p>In PyTorch, a <strong>Tensor</strong> is the fundamental building block for all data and
+                        computations in deep learning. It's a sophisticated multi-dimensional array that serves as the
+                        backbone of neural networks.</p>
 
                     <div class="key-concept">
                         <h4>🌟 Two Superpowers of PyTorch Tensors</h4>
                         <ol>
-                            <li><strong>GPU Acceleration:</strong> Tensors can seamlessly run on GPUs (Graphics Processing Units) for massive computational speedups—often 10-100x faster than CPUs. This makes them ideal for training complex deep learning models.</li>
-                            <li><strong>Automatic Differentiation:</strong> Tensors can track all mathematical operations performed on them, enabling automatic gradient calculation for backpropagation. This is the magic that allows neural networks to learn from data.</li>
+                            <li><strong>GPU Acceleration:</strong> Tensors can seamlessly run on GPUs (Graphics
+                                Processing Units) for massive computational speedups—often 10-100x faster than CPUs.
+                                This makes them ideal for training complex deep learning models.</li>
+                            <li><strong>Automatic Differentiation:</strong> Tensors can track all mathematical
+                                operations performed on them, enabling automatic gradient calculation for
+                                backpropagation. This is the magic that allows neural networks to learn from data.</li>
                         </ol>
                     </div>
 
                     <h3><span class="emoji-icon">📐</span> The Hierarchy of Dimensions</h3>
-                    <p>Understanding tensor dimensions is absolutely crucial for working with PyTorch. Think of dimensions as the number of "directions" your data can move in.</p>
+                    <p>Understanding tensor dimensions is absolutely crucial for working with PyTorch. Think of
+                        dimensions as the number of "directions" your data can move in.</p>
 
                     <div class="visual-diagram">
                         <h4 style="margin-bottom: 30px;">Visual Representation of Tensor Dimensions</h4>
@@ -691,8 +711,12 @@
 
                         <div class="tensor-visual">
                             <div class="matrix-box">
-                                <div>1</div><div>2</div><div>3</div>
-                                <div>4</div><div>5</div><div>6</div>
+                                <div>1</div>
+                                <div>2</div>
+                                <div>3</div>
+                                <div>4</div>
+                                <div>5</div>
+                                <div>6</div>
                             </div>
                             <p><strong>2-D Tensor (Matrix)</strong></p>
                             <p>Grid of numbers<br>Rows and columns</p>
@@ -747,11 +771,16 @@
 
                     <div class="info-box">
                         <strong>📌 Key Insight:</strong>
-                        In Deep Learning, we use the word "Tensor" to refer to arrays of any dimension. The term encompasses everything from scalars (0-D) to high-dimensional data structures (5-D and beyond). When someone says "tensor," they could mean anything from a single number to a complex multi-dimensional array!
+                        In Deep Learning, we use the word "Tensor" to refer to arrays of any dimension. The term
+                        encompasses everything from scalars (0-D) to high-dimensional data structures (5-D and beyond).
+                        When someone says "tensor," they could mean anything from a single number to a complex
+                        multi-dimensional array!
                     </div>
 
                     <h3><span class="emoji-icon">🔍</span> Understanding .ndim Attribute</h3>
-                    <p>The <code>.ndim</code> attribute tells you the number of dimensions (or axes) a tensor has. A simple trick: <strong>count the opening brackets <code>[</code> before you reach the first number</strong>.</p>
+                    <p>The <code>.ndim</code> attribute tells you the number of dimensions (or axes) a tensor has. A
+                        simple trick: <strong>count the opening brackets <code>[</code> before you reach the first
+                            number</strong>.</p>
 
                     <pre><code>import torch
 
@@ -780,7 +809,8 @@ print(tensor_4d.ndim)  # 4</code></pre>
                     <p>There are many ways to create tensors in PyTorch. Let's explore each method in detail.</p>
 
                     <h3><span class="emoji-icon">🔢</span> Scalar (0-D Tensor)</h3>
-                    <p>A scalar is the simplest tensor—just a single number with zero dimensions. It represents a magnitude without direction.</p>
+                    <p>A scalar is the simplest tensor—just a single number with zero dimensions. It represents a
+                        magnitude without direction.</p>
 
                     <pre><code>import torch
 
@@ -794,11 +824,14 @@ print(scalar.item())       # 9 (convert to Python number)
 
                     <div class="note">
                         <strong>💡 Understanding .item():</strong>
-                        The <code>.item()</code> method extracts the Python number from a scalar tensor. This is useful when you need to use the value in regular Python code or print it without the "tensor()" wrapper.
+                        The <code>.item()</code> method extracts the Python number from a scalar tensor. This is useful
+                        when you need to use the value in regular Python code or print it without the "tensor()"
+                        wrapper.
                     </div>
 
                     <h3><span class="emoji-icon">📏</span> Vector (1-D Tensor)</h3>
-                    <p>A vector is a 1-dimensional array of numbers. Unlike scalars, vectors have both magnitude and direction.</p>
+                    <p>A vector is a 1-dimensional array of numbers. Unlike scalars, vectors have both magnitude and
+                        direction.</p>
 
                     <pre><code>vector = torch.tensor([9, 8, 7])
 print(vector)              # tensor([9, 8, 7])
@@ -808,7 +841,8 @@ print(vector[0])           # tensor(9) - first element
 print(vector[-1])          # tensor(7) - last element</code></pre>
 
                     <h3><span class="emoji-icon">🔲</span> Matrix (2-D Tensor)</h3>
-                    <p>A matrix is a 2-dimensional grid organized in rows and columns. This is one of the most common tensor types.</p>
+                    <p>A matrix is a 2-dimensional grid organized in rows and columns. This is one of the most common
+                        tensor types.</p>
 
                     <pre><code>MATRIX = torch.tensor([[1, 2, 3],
                        [4, 5, 6]])
@@ -848,7 +882,8 @@ print(TENSOR.shape)        # torch.Size([1, 1, 3, 3])
                             <li><strong>Height = 3:</strong> Image is 3 pixels tall</li>
                             <li><strong>Width = 3:</strong> Image is 3 pixels wide</li>
                         </ul>
-                        <p>A typical RGB image batch might have shape <code>[32, 3, 224, 224]</code> meaning 32 images, 3 color channels, 224×224 pixels each.</p>
+                        <p>A typical RGB image batch might have shape <code>[32, 3, 224, 224]</code> meaning 32 images,
+                            3 color channels, 224×224 pixels each.</p>
                     </div>
 
                     <h3><span class="emoji-icon">0️⃣</span> Zeros and Ones Tensors</h3>
@@ -900,10 +935,13 @@ print(float_seq)               # tensor([0.0, 0.1, 0.2, ..., 0.9])</code></pre>
                     <div class="warning">
                         <strong>⚠️ torch.arange() vs torch.range():</strong>
                         <ul>
-                            <li><code>torch.arange(start, end, step)</code> → ✅ RECOMMENDED (end is exclusive, like Python's range)</li>
-                            <li><code>torch.range(start, end, step)</code> → ❌ DEPRECATED (end is inclusive, can cause bugs)</li>
+                            <li><code>torch.arange(start, end, step)</code> → ✅ RECOMMENDED (end is exclusive, like
+                                Python's range)</li>
+                            <li><code>torch.range(start, end, step)</code> → ❌ DEPRECATED (end is inclusive, can cause
+                                bugs)</li>
                         </ul>
-                        <p>Always use <code>torch.arange()</code> in new code to avoid confusion and future compatibility issues!</p>
+                        <p>Always use <code>torch.arange()</code> in new code to avoid confusion and future
+                            compatibility issues!</p>
                     </div>
                 </div>
 
@@ -913,19 +951,32 @@ print(float_seq)               # tensor([0.0, 0.1, 0.2, ..., 0.9])</code></pre>
                     <h2><span class="emoji-icon">🎲</span> Random Tensors & Why They Matter</h2>
 
                     <h3><span class="emoji-icon">🤔</span> Why Start with Random Numbers?</h3>
-                    <p>It might seem counterintuitive to start neural networks with "random" values, but randomness is actually the vital "seed" that allows deep learning to work. Without it, networks couldn't learn!</p>
+                    <p>It might seem counterintuitive to start neural networks with "random" values, but randomness is
+                        actually the vital "seed" that allows deep learning to work. Without it, networks couldn't
+                        learn!</p>
 
                     <div class="key-concept">
                         <h4>🎯 Three Critical Reasons for Random Initialization</h4>
 
                         <p><strong>1. Breaking Symmetry 🔓</strong></p>
-                        <p>If all neurons started with the same value (like 0), they would all compute the same outputs and receive the same gradients during backpropagation. This means they would all learn the exact same patterns—essentially becoming redundant copies of each other. Random initialization ensures every neuron starts unique so they can "specialize" in detecting different features.</p>
+                        <p>If all neurons started with the same value (like 0), they would all compute the same outputs
+                            and receive the same gradients during backpropagation. This means they would all learn the
+                            exact same patterns—essentially becoming redundant copies of each other. Random
+                            initialization ensures every neuron starts unique so they can "specialize" in detecting
+                            different features.</p>
 
                         <p><strong>2. A Starting Point for Optimization 🎯</strong></p>
-                        <p>Gradient descent is like hiking down a mountain in the fog—you can only see what's immediately around you. The algorithm needs somewhere to begin on this optimization landscape. Random tensors place the model at a random spot on this "map," giving it a starting point to begin its journey toward the optimal solution.</p>
+                        <p>Gradient descent is like hiking down a mountain in the fog—you can only see what's
+                            immediately around you. The algorithm needs somewhere to begin on this optimization
+                            landscape. Random tensors place the model at a random spot on this "map," giving it a
+                            starting point to begin its journey toward the optimal solution.</p>
 
                         <p><strong>3. Preventing Stagnation 🚫</strong></p>
-                        <p>Without randomness, models can get stuck in poor local minima (valleys that aren't the lowest point). Random initialization helps shake things up, giving the model different starting points that can lead to better global solutions. It's like trying to find the lowest point in a landscape—starting from different locations gives you better chances of finding the true minimum.</p>
+                        <p>Without randomness, models can get stuck in poor local minima (valleys that aren't the lowest
+                            point). Random initialization helps shake things up, giving the model different starting
+                            points that can lead to better global solutions. It's like trying to find the lowest point
+                            in a landscape—starting from different locations gives you better chances of finding the
+                            true minimum.</p>
                     </div>
 
                     <h3><span class="emoji-icon">⚡</span> Creating Random Tensors</h3>
@@ -996,12 +1047,14 @@ print("Random like:", random_like)</code></pre>
                     <h2><span class="emoji-icon">🔢</span> Tensor Data Types Deep Dive</h2>
 
                     <h3><span class="emoji-icon">📌</span> What are Data Types and Why Do They Matter?</h3>
-                    <p>A tensor's <strong>data type (dtype)</strong> defines what kind of values it can store and how much memory each value uses. Choosing the right dtype is crucial for three reasons:</p>
+                    <p>A tensor's <strong>data type (dtype)</strong> defines what kind of values it can store and how
+                        much memory each value uses. Choosing the right dtype is crucial for three reasons:</p>
 
                     <ul>
                         <li><strong>Memory Efficiency:</strong> Using lower precision saves RAM and GPU memory</li>
                         <li><strong>Computational Speed:</strong> Lower precision operations run faster</li>
-                        <li><strong>Numerical Stability:</strong> Higher precision prevents rounding errors in sensitive calculations</li>
+                        <li><strong>Numerical Stability:</strong> Higher precision prevents rounding errors in sensitive
+                            calculations</li>
                     </ul>
 
                     <h3><span class="emoji-icon">🔢</span> Integer Types (Whole Numbers)</h3>
@@ -1130,13 +1183,15 @@ print(x_float.dtype)       # torch.float32</code></pre>
                                 <td>Baseline</td>
                             </tr>
                         </table>
-                        <p style="margin-top: 15px;">For a model with 100 million parameters, choosing float16 instead of float32 saves 200 MB of GPU memory!</p>
+                        <p style="margin-top: 15px;">For a model with 100 million parameters, choosing float16 instead
+                            of float32 saves 200 MB of GPU memory!</p>
                     </div>
 
                     <h3><span class="emoji-icon">🎯</span> Understanding Bits and Precision</h3>
                     <div class="info-box">
                         <strong>What does "bit" actually mean?</strong>
-                        <p>A <strong>bit</strong> is the smallest unit of computer memory—it can be either 0 or 1. When we say a number uses "32 bits," we mean it's stored using 32 of these 0s and 1s.</p>
+                        <p>A <strong>bit</strong> is the smallest unit of computer memory—it can be either 0 or 1. When
+                            we say a number uses "32 bits," we mean it's stored using 32 of these 0s and 1s.</p>
 
                         <p><strong>Think of bits like boxes:</strong></p>
                         <ul>
@@ -1145,11 +1200,13 @@ print(x_float.dtype)       # torch.float32</code></pre>
                             <li>64 boxes (float64) → can store very detailed things, lots of space</li>
                         </ul>
 
-                        <p>More bits = more precision and larger numbers, but also more memory and slower computations.</p>
+                        <p>More bits = more precision and larger numbers, but also more memory and slower computations.
+                        </p>
                     </div>
 
                     <h3><span class="emoji-icon">⚡</span> Type Mixing and Operations</h3>
-                    <p>When you perform operations between tensors of different types, PyTorch automatically promotes to the "wider" type:</p>
+                    <p>When you perform operations between tensors of different types, PyTorch automatically promotes to
+                        the "wider" type:</p>
 
                     <pre><code># int32 + float32 = float32
 int_tensor = torch.tensor([1, 2], dtype=torch.int32)
@@ -1197,7 +1254,8 @@ print(result.dtype)        # torch.int64</code></pre>
                     <div class="breadcrumb">Chapter 1: PyTorch Fundamentals > Tensor Attributes</div>
                     <h2><span class="emoji-icon">📊</span> Tensor Attributes</h2>
 
-                    <p>Every tensor has fundamental attributes that define its characteristics. Understanding these is essential for debugging and working effectively with PyTorch.</p>
+                    <p>Every tensor has fundamental attributes that define its characteristics. Understanding these is
+                        essential for debugging and working effectively with PyTorch.</p>
 
                     <h3><span class="emoji-icon">🔍</span> The Four Core Attributes</h3>
                     <pre><code>x = torch.tensor([[1.0, 2.0, 3.0],
@@ -1215,7 +1273,8 @@ print(f"shape: {x.shape}")                    # torch.Size([2, 3])</code></pre>
 
                     <div class="info-box">
                         <strong>1. dtype (Data Type)</strong>
-                        <p>Specifies the type of data stored in the tensor (int, float, bool, etc.). This determines:</p>
+                        <p>Specifies the type of data stored in the tensor (int, float, bool, etc.). This determines:
+                        </p>
                         <ul>
                             <li>How much memory each value uses</li>
                             <li>The range of values that can be stored</li>
@@ -1236,7 +1295,8 @@ print(f"shape: {x.shape}")                    # torch.Size([2, 3])</code></pre>
 
                     <div class="info-box">
                         <strong>3. requires_grad (Gradient Tracking)</strong>
-                        <p>Boolean flag that tells PyTorch whether to track operations for automatic differentiation:</p>
+                        <p>Boolean flag that tells PyTorch whether to track operations for automatic differentiation:
+                        </p>
                         <ul>
                             <li><code>True</code> → Track all operations, compute gradients (for model parameters)</li>
                             <li><code>False</code> → Don't track operations, save memory (for input data)</li>
@@ -1309,10 +1369,12 @@ print(x.is_floating_point())  # True - check if float type</code></pre>
                     <div class="breadcrumb">Chapter 1: PyTorch Fundamentals > Arithmetic Operations</div>
                     <h2><span class="emoji-icon">➕</span> Tensor Arithmetic Operations</h2>
 
-                    <p>Tensor operations form the foundation of all neural network computations. Let's explore each operation type in detail.</p>
+                    <p>Tensor operations form the foundation of all neural network computations. Let's explore each
+                        operation type in detail.</p>
 
                     <h3><span class="emoji-icon">🔢</span> Basic Arithmetic Operations</h3>
-                    <p>All basic arithmetic operations work <strong>element-wise</strong>, meaning they apply to corresponding elements:</p>
+                    <p>All basic arithmetic operations work <strong>element-wise</strong>, meaning they apply to
+                        corresponding elements:</p>
 
                     <pre><code>a = torch.tensor([1., 2., 3.])
 b = torch.tensor([4., 5., 6.])
@@ -1338,7 +1400,8 @@ print(b / a)               # tensor([4., 2.5, 2.])</code></pre>
 
                     <div class="warning">
                         <strong>⚠️ Common Mistake:</strong>
-                        <p>The <code>*</code> operator performs <strong>element-wise</strong> multiplication, NOT matrix multiplication!</p>
+                        <p>The <code>*</code> operator performs <strong>element-wise</strong> multiplication, NOT matrix
+                            multiplication!</p>
                         <ul>
                             <li><code>a * b</code> → Element-wise multiplication (Hadamard product)</li>
                             <li><code>a @ b</code> or <code>torch.matmul(a, b)</code> → Matrix multiplication</li>
@@ -1365,7 +1428,8 @@ print(torch.log(x))        # Natural log
 print(torch.abs(torch.tensor([-1., 2., -3.])))  # tensor([1., 2., 3.])</code></pre>
 
                     <h3><span class="emoji-icon">🔄</span> In-Place Operations</h3>
-                    <p>Operations ending with <code>_</code> modify the tensor in-place (saves memory but changes original):</p>
+                    <p>Operations ending with <code>_</code> modify the tensor in-place (saves memory but changes
+                        original):</p>
 
                     <pre><code>x = torch.tensor([1., 2., 3.])
 print("Original:", x)
@@ -1392,7 +1456,8 @@ print("After mul_:", x)    # tensor([12., 14., 16.])</code></pre>
                     <div class="breadcrumb">Chapter 1: PyTorch Fundamentals > Aggregation Operations</div>
                     <h2><span class="emoji-icon">📉</span> Aggregation & Reduction Operations</h2>
 
-                    <p>Aggregation operations reduce tensors to smaller tensors or single values—essential for loss calculation and metrics.</p>
+                    <p>Aggregation operations reduce tensors to smaller tensors or single values—essential for loss
+                        calculation and metrics.</p>
 
                     <h3><span class="emoji-icon">📊</span> Basic Aggregation Functions</h3>
                     <pre><code>x = torch.tensor([[1., 2., 3.],
@@ -1453,7 +1518,8 @@ print(x.mean(dim=1))       # tensor([2., 5.])</code></pre>
                             <li><code>dim=0</code> → Collapse rows (compute column-wise)</li>
                             <li><code>dim=1</code> → Collapse columns (compute row-wise)</li>
                         </ul>
-                        <p>Think: "<code>dim=0</code> means going down the rows, <code>dim=1</code> means going across columns."</p>
+                        <p>Think: "<code>dim=0</code> means going down the rows, <code>dim=1</code> means going across
+                            columns."</p>
                     </div>
 
                     <h3><span class="emoji-icon">✅</span> Comparison Operations</h3>
@@ -1517,7 +1583,8 @@ print(a != b)              # tensor([True, False, True])</code></pre>
 
                     <div class="note">
                         <strong>💡 Pro Tip:</strong>
-                        <p>Most aggregation functions accept <code>keepdim=True</code> to maintain the original number of dimensions:</p>
+                        <p>Most aggregation functions accept <code>keepdim=True</code> to maintain the original number
+                            of dimensions:</p>
                         <pre><code>x = torch.tensor([[1., 2.], [3., 4.]])
 print(x.sum(dim=0))                  # tensor([4., 6.]) - shape: [2]
 print(x.sum(dim=0, keepdim=True))    # tensor([[4., 6.]]) - shape: [1, 2]</code></pre>
@@ -1529,7 +1596,8 @@ print(x.sum(dim=0, keepdim=True))    # tensor([[4., 6.]]) - shape: [1, 2]</code>
                     <div class="breadcrumb">Chapter 1: PyTorch Fundamentals > Matrix Multiplication</div>
                     <h2><span class="emoji-icon">🔲</span> Matrix Multiplication</h2>
 
-                    <p>Matrix multiplication is one of the most important operations in deep learning—it's the foundation of how neural networks process information!</p>
+                    <p>Matrix multiplication is one of the most important operations in deep learning—it's the
+                        foundation of how neural networks process information!</p>
 
                     <h3><span class="emoji-icon">⚠️</span> Element-wise vs Matrix Multiplication</h3>
                     <p>This is a critical distinction that causes many bugs:</p>
@@ -1648,7 +1716,8 @@ print(output.shape)    # torch.Size([32, 128])
                     <div class="breadcrumb">Chapter 1: PyTorch Fundamentals > Shape Manipulation</div>
                     <h2><span class="emoji-icon">🔄</span> Shape Manipulation</h2>
 
-                    <p>Shape manipulation is essential for preparing data for neural networks. Let's master all the key operations!</p>
+                    <p>Shape manipulation is essential for preparing data for neural networks. Let's master all the key
+                        operations!</p>
 
                     <h3><span class="emoji-icon">📏</span> Reshaping</h3>
                     <p>Change tensor shape without changing the data or order of elements:</p>
@@ -1830,7 +1899,8 @@ print(y.shape)                         # torch.Size([10, 3, 224, 224])</code></p
                     <div class="breadcrumb">Chapter 1: PyTorch Fundamentals > Indexing & Slicing</div>
                     <h2><span class="emoji-icon">🎯</span> Indexing & Slicing</h2>
 
-                    <p>Indexing allows you to extract, modify, or filter specific elements from tensors. Master this skill for effective data manipulation!</p>
+                    <p>Indexing allows you to extract, modify, or filter specific elements from tensors. Master this
+                        skill for effective data manipulation!</p>
 
                     <h3><span class="emoji-icon">📍</span> Basic Indexing</h3>
                     <pre><code>x = torch.tensor([[1, 2, 3],
@@ -1905,7 +1975,9 @@ print(x)
 
                     <div class="warning">
                         <strong>⚠️ Boolean Operators:</strong>
-                        <p>Use <code>&</code>, <code>|</code>, <code>~</code> for element-wise boolean operations, not <code>and</code>, <code>or</code>, <code>not</code>:</p>
+                        <p>Use <code>&</code>, <code>|</code>, <code>~</code> for element-wise boolean operations, not
+                            <code>and</code>, <code>or</code>, <code>not</code>:
+                        </p>
                         <ul>
                             <li><code>(x > 3) & (x < 8)</code> ✅ Correct</li>
                             <li><code>(x > 3) and (x < 8)</code> ❌ Error!</li>
@@ -1986,11 +2058,13 @@ print(selected)
                     <div class="breadcrumb">Chapter 1: PyTorch Fundamentals > PyTorch ↔ NumPy</div>
                     <h2><span class="emoji-icon">🔗</span> PyTorch ↔ NumPy Interoperability</h2>
 
-                    <p>PyTorch and NumPy work seamlessly together, allowing you to leverage both ecosystems in your projects.</p>
+                    <p>PyTorch and NumPy work seamlessly together, allowing you to leverage both ecosystems in your
+                        projects.</p>
 
                     <h3><span class="emoji-icon">🤝</span> Why This Matters</h3>
                     <ul>
-                        <li><strong>NumPy Integration:</strong> Many data science libraries (pandas, scikit-learn) use NumPy</li>
+                        <li><strong>NumPy Integration:</strong> Many data science libraries (pandas, scikit-learn) use
+                            NumPy</li>
                         <li><strong>Visualization:</strong> Matplotlib and seaborn expect NumPy arrays</li>
                         <li><strong>Legacy Code:</strong> Convert existing NumPy code to PyTorch</li>
                         <li><strong>Zero-Copy:</strong> On CPU, conversion shares memory (very efficient!)</li>
@@ -2025,13 +2099,15 @@ print(f"Type: {type(np_array)}")</code></pre>
                         <strong>⚠️ Critical Limitations:</strong>
                         <ul>
                             <li><strong>CPU Only:</strong> <code>.numpy()</code> only works on CPU tensors</li>
-                            <li><strong>GPU Tensors:</strong> Must move to CPU first: <code>tensor.cpu().numpy()</code></li>
+                            <li><strong>GPU Tensors:</strong> Must move to CPU first: <code>tensor.cpu().numpy()</code>
+                            </li>
                             <li><strong>Requires Grad:</strong> Can't convert tensors that require gradients</li>
                         </ul>
                     </div>
 
                     <h3><span class="emoji-icon">⚠️</span> Shared Memory Behavior</h3>
-                    <p>When converting on CPU, PyTorch and NumPy share the same memory. Modifying one affects the other!</p>
+                    <p>When converting on CPU, PyTorch and NumPy share the same memory. Modifying one affects the other!
+                    </p>
 
                     <pre><code>np_array = np.array([1, 2, 3])
 torch_tensor = torch.from_numpy(np_array)
@@ -2121,15 +2197,19 @@ torch_tensor = torch_tensor.float()  # now float32</code></pre>
                     <h2><span class="emoji-icon">🔒</span> Reproducibility in Deep Learning</h2>
 
                     <h3><span class="emoji-icon">❓</span> Why Reproducibility Matters</h3>
-                    <p>Reproducibility ensures that experiments produce consistent results across different runs. This is crucial for:</p>
+                    <p>Reproducibility ensures that experiments produce consistent results across different runs. This
+                        is crucial for:</p>
 
                     <div class="key-concept">
                         <h4>🎯 Four Critical Benefits</h4>
                         <ul>
-                            <li><strong>Debugging:</strong> When something goes wrong, reproducible results help identify what changed</li>
-                            <li><strong>Fair Comparison:</strong> Compare models on equal footing without random variation</li>
+                            <li><strong>Debugging:</strong> When something goes wrong, reproducible results help
+                                identify what changed</li>
+                            <li><strong>Fair Comparison:</strong> Compare models on equal footing without random
+                                variation</li>
                             <li><strong>Scientific Research:</strong> Others can verify and build upon your results</li>
-                            <li><strong>Production Deployment:</strong> Predictable model behavior in real-world applications</li>
+                            <li><strong>Production Deployment:</strong> Predictable model behavior in real-world
+                                applications</li>
                         </ul>
                     </div>
 
@@ -2173,7 +2253,9 @@ print(tensor_b)
 
                     <div class="note">
                         <strong>💡 How Seeds Work:</strong>
-                        <p>Random number generators aren't truly random—they use mathematical algorithms that produce sequences of pseudo-random numbers. The seed is the starting point for this sequence. Same seed = same sequence!</p>
+                        <p>Random number generators aren't truly random—they use mathematical algorithms that produce
+                            sequences of pseudo-random numbers. The seed is the starting point for this sequence. Same
+                            seed = same sequence!</p>
                     </div>
 
                     <h3><span class="emoji-icon">🎲</span> Multiple Sources of Randomness</h3>
@@ -2256,7 +2338,9 @@ set_seed(42)</code></pre>
 
                     <div class="warning">
                         <strong>⚠️ Performance Trade-off:</strong>
-                        <p>Setting <code>torch.backends.cudnn.deterministic = True</code> ensures reproducibility but can slow down training by 10-30%. For experiments where exact reproducibility isn't critical, you can skip this line.</p>
+                        <p>Setting <code>torch.backends.cudnn.deterministic = True</code> ensures reproducibility but
+                            can slow down training by 10-30%. For experiments where exact reproducibility isn't
+                            critical, you can skip this line.</p>
                     </div>
 
                     <h3><span class="emoji-icon">🧪</span> Testing Reproducibility</h3>
@@ -2306,9 +2390,11 @@ test_reproducibility()</code></pre>
                     <h3><span class="emoji-icon">🎯</span> When Reproducibility Isn't Perfect</h3>
                     <p>Even with all seeds set, some operations may still have minor variations:</p>
                     <ul>
-                        <li><strong>Different hardware:</strong> CPU vs GPU may give slightly different results due to floating-point precision</li>
+                        <li><strong>Different hardware:</strong> CPU vs GPU may give slightly different results due to
+                            floating-point precision</li>
                         <li><strong>Different OS:</strong> Windows, Linux, and macOS may have subtle differences</li>
-                        <li><strong>Parallel operations:</strong> Multi-threaded operations may execute in different orders</li>
+                        <li><strong>Parallel operations:</strong> Multi-threaded operations may execute in different
+                            orders</li>
                     </ul>
                 </div>
 
@@ -2318,21 +2404,26 @@ test_reproducibility()</code></pre>
                     <h2><span class="emoji-icon">🚀</span> GPU Acceleration</h2>
 
                     <h3><span class="emoji-icon">💪</span> Why Use GPUs?</h3>
-                    <p>GPUs (Graphics Processing Units) revolutionize deep learning by performing thousands of calculations in parallel:</p>
+                    <p>GPUs (Graphics Processing Units) revolutionize deep learning by performing thousands of
+                        calculations in parallel:</p>
 
                     <div class="key-concept">
                         <h4>🎯 Three Major Advantages</h4>
                         <ul>
-                            <li><strong>Speed:</strong> 10-100x faster than CPUs for matrix operations and neural networks</li>
+                            <li><strong>Speed:</strong> 10-100x faster than CPUs for matrix operations and neural
+                                networks</li>
                             <li><strong>Parallel Processing:</strong> Handle thousands of operations simultaneously</li>
-                            <li><strong>Optimized for AI:</strong> Specifically designed for the mathematical operations used in deep learning</li>
+                            <li><strong>Optimized for AI:</strong> Specifically designed for the mathematical operations
+                                used in deep learning</li>
                         </ul>
                     </div>
 
                     <div class="visual-diagram">
                         <h4>CPU vs GPU Processing</h4>
-                        <p><strong>CPU:</strong> 4-16 cores doing tasks sequentially (like a chef cooking one dish at a time)</p>
-                        <p><strong>GPU:</strong> Thousands of cores doing tasks in parallel (like a restaurant kitchen with many chefs)</p>
+                        <p><strong>CPU:</strong> 4-16 cores doing tasks sequentially (like a chef cooking one dish at a
+                            time)</p>
+                        <p><strong>GPU:</strong> Thousands of cores doing tasks in parallel (like a restaurant kitchen
+                            with many chefs)</p>
                     </div>
 
                     <h3><span class="emoji-icon">✅</span> Checking GPU Availability</h3>
@@ -2414,7 +2505,9 @@ if torch.cuda.is_available():
                     <div class="info-box">
                         <strong>✅ DO:</strong>
                         <ul>
-                            <li>Set device at the start: <code>device = torch.device("cuda" if torch.cuda.is_available() else "cpu")</code></li>
+                            <li>Set device at the start:
+                                <code>device = torch.device("cuda" if torch.cuda.is_available() else "cpu")</code>
+                            </li>
                             <li>Move model to device: <code>model.to(device)</code></li>
                             <li>Move data to same device: <code>data.to(device)</code></li>
                             <li>Use <code>.cuda()</code> for GPU, <code>.cpu()</code> for CPU</li>
@@ -2548,9 +2641,11 @@ torch.cuda.empty_cache()
 torch.cuda.reset_peak_memory_stats()</code></pre>
                     </div>
 
-                    <div class="info-box" style="margin-top: 40px; background: linear-gradient(135deg, #e0f7fa, #f0f9ff); border-left: 6px solid #00bcd4;">
+                    <div class="info-box"
+                        style="margin-top: 40px; background: linear-gradient(135deg, #e0f7fa, #f0f9ff); border-left: 6px solid #00bcd4;">
                         <strong style="color: #00838f; font-size: 20px;">🎉 Congratulations!</strong>
-                        <p style="font-size: 18px; margin-top: 10px;">You've completed Chapter 1: PyTorch Fundamentals!</p>
+                        <p style="font-size: 18px; margin-top: 10px;">You've completed Chapter 1: PyTorch Fundamentals!
+                        </p>
                         <p>You now understand:</p>
                         <ul>
                             <li>✅ What tensors are and how to create them</li>
@@ -2561,7 +2656,8 @@ torch.cuda.reset_peak_memory_stats()</code></pre>
                             <li>✅ Reproducibility and random seeds</li>
                             <li>✅ GPU acceleration for faster training</li>
                         </ul>
-                        <p style="margin-top: 15px; font-weight: bold;">You're ready to start building neural networks! 🚀</p>
+                        <p style="margin-top: 15px; font-weight: bold;">You're ready to start building neural networks!
+                            🚀</p>
                     </div>
 
                     <div class="footer">
@@ -2571,13 +2667,15 @@ torch.cuda.reset_peak_memory_stats()</code></pre>
                             <div class="footer-links">
                                 <a href="https://github.com/sujal910" target="_blank" class="footer-link">
                                     <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                                        <path
+                                            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
                                     </svg>
                                     GitHub
                                 </a>
                                 <a href="https://x.com/SujalPareek910" target="_blank" class="footer-link">
                                     <svg viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                                        <path
+                                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                                     </svg>
                                     Twitter/X
                                 </a>
@@ -2626,7 +2724,7 @@ torch.cuda.reset_peak_memory_stats()</code></pre>
         }
 
         // Close sidebar when clicking outside (optional)
-        document.addEventListener('click', function(event) {
+        document.addEventListener('click', function (event) {
             const sidebar = document.getElementById('sidebar');
             const btn = document.querySelector('.toggle-btn');
 
@@ -2638,7 +2736,7 @@ torch.cuda.reset_peak_memory_stats()</code></pre>
         });
 
         // Keyboard navigation
-        document.addEventListener('keydown', function(event) {
+        document.addEventListener('keydown', function (event) {
             if (event.key === 'Escape') {
                 const sidebar = document.getElementById('sidebar');
                 if (sidebar.classList.contains('open')) {
@@ -2648,4 +2746,5 @@ torch.cuda.reset_peak_memory_stats()</code></pre>
         });
     </script>
 </body>
+
 </html>
