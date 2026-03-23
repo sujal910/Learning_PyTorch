@@ -1,148 +1,110 @@
-# 🚀 Learning PyTorch
+<div align="center">
 
-Welcome to **Learning PyTorch** — a beginner-friendly repository for learning PyTorch step by step with clear code examples and hands-on notebooks!
+# 🔥 Learning PyTorch
 
-This repo contains essential PyTorch concepts like **tensors**, **automatic differentiation**, **neural networks**, and **training loops**, all presented in an easy-to-follow way with well-commented code. :contentReference[oaicite:0]{index=0}
+**A structured, beginner-to-intermediate notebook series for learning PyTorch from scratch.**
 
----
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=for-the-badge&logo=jupyter&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=for-the-badge)
 
-## 📌 What This Project Is
-
-This repository is designed to help anyone — beginners especially — learn PyTorch from scratch using:
-
-- 🔹 Clear **Jupyter notebooks** with explanations  
-- 🔹 Worked examples showing how PyTorch works  
-- 🔹 Comments explaining each step  
-- 🔹 Guided practice that mirrors a video tutorial  
-
-You're learning **from the Udacity PyTorch YouTube tutorial** and referring to **the official PyTorch documentation** as you go. :contentReference[oaicite:1]{index=1}
-
-👉 **Tutorial Video:** https://youtu.be/V_xro1bcAuA  
-👉 **PyTorch Docs:** https://pytorch.org/docs
+</div>
 
 ---
 
-## 🧠 What You’ll Learn
+## 📖 About
 
-Here’s what this repo covers:
+This repository is my personal PyTorch learning journey — structured as a series of hands-on Jupyter notebooks that build on each other, from basic tensor operations all the way to convolutional neural networks.
 
-✔️ PyTorch basics — Tensors and Operations  
-✔️ Automatic Differentiation with `autograd`  
-✔️ Building Neural Networks from scratch  
-✔️ Training and Evaluating Models  
-✔️ Using GPU (optional)  
-✔️ Practice notebooks with exercises
-
-This repo grows as you learn — more topics and projects will be added periodically!
+Each notebook is self-contained with explanations, code, and visualizations. The goal is to understand the **why** behind every concept, not just copy-paste code.
 
 ---
 
-## 🛠️ Getting Started
+## 📂 Repository Structure
 
-### 1. Clone this repository
+```
+Learning_PyTorch/
+│
+├── 01_Tensors/
+│   └── 01_pytorch_tensors.ipynb       # Tensor basics, operations, GPU usage
+│
+├── 02_Workflow/
+│   └── 02_pytorch_workflow.ipynb      # Training loop, loss, optimizer, eval
+│
+├── 03_Neural_Networks/                 ← coming soon
+│   └── 03_neural_networks.ipynb       # nn.Module, layers, activations
+│
+├── 04_Datasets_DataLoaders/            ← coming soon
+│   └── 04_datasets.ipynb              # Custom datasets, DataLoader, transforms
+│
+├── 05_CNNs/                            ← coming soon
+│   └── 05_cnn.ipynb                   # Conv2d, pooling, image classification
+│
+├── Extra_Resources/
+│   └── matplotlib_basics.ipynb        # Quick matplotlib reference
+│
+└── README.md
+```
+
+---
+
+## 📋 Notebook Index
+
+| # | Topic | Notebook | Status |
+|---|-------|----------|--------|
+| 01 | PyTorch Tensors & Operations | `01_Tensors/` | ✅ Done |
+| 02 | PyTorch Training Workflow | `02_Workflow/` | ✅ Done |
+| 03 | Neural Networks (`nn.Module`) | `03_Neural_Networks/` | 🔄 In progress |
+| 04 | Datasets & DataLoaders | `04_Datasets_DataLoaders/` | ⬜ Upcoming |
+| 05 | Convolutional Neural Networks | `05_CNNs/` | ⬜ Upcoming |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+```bash
+pip install torch torchvision matplotlib jupyter
+```
+
+> Recommended: Python 3.10+, PyTorch 2.x
+
+### Run Locally
 
 ```bash
 git clone https://github.com/sujal910/Learning_PyTorch.git
 cd Learning_PyTorch
-````
-
-### 2. (Optional) Create and activate a virtual environment
-
-```bash
-python -m venv venv
-# Windows
-.\venv\Scripts\activate
-# macOS / Linux
-source venv/bin/activate
-```
-
-### 3. Install PyTorch
-
-Follow the install commands from the official site:
-
-👉 [https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/)
-(Choose according to your OS and whether you have a GPU)
-
-Example (CPU-only install):
-
-```bash
-pip install torch torchvision
-```
-
-### 4. Install Jupyter (if not installed)
-
-```bash
-pip install jupyter
-```
-
-### 5. Run Notebooks
-
-```bash
 jupyter notebook
 ```
 
-Open the notebooks (like `01_pytorch.ipynb`) and follow along!
-
 ---
 
-## ✨ How to Use This Repo
+## 🧭 Learning Path
 
-This repo’s notebooks are structured in a beginner-friendly order:
-
-| Notebook           | Topic Covered            |
-| ------------------ | ------------------------ |
-| `01_pytorch.ipynb` | PyTorch basics & tensors |
-| ❓ More upcoming    | More advanced topics     |
-
-I recommend following the **YouTube video playlist** while you explore these notebooks — it’ll reinforce your learning experience!
-
----
-
-## 🔗 Helpful Resources
-
-Here are the resources I’m using to learn and that I recommend:
-
-🔹 **Official PyTorch Tutorials** – excellent hands-on deep learning guides ([PyTorch Documentation][1])
-🔹 **YouTube PyTorch beginner tutorial** – video explanations to complement the code
-🔹 **The “Incredible PyTorch” curated list** — tons of learning material and community resources ([GitHub][2])
-
----
-
-## 💡 Best Practices
-
-To grow this repo into a great learning resource, I’m following best practices like:
-
-✔️ Well-commented code
-✔️ Intuitive folder structure
-✔️ Step-by-step guides
-✔️ Clear explanations and preview notebooks
-
-These help make the code readable, maintainable, and easy to learn from. ([GeeksforGeeks][3])
-
----
-
-## ⭐ Contributing
-
-Contributions are **welcome**! If you:
-
-✨ Want to add notes
-✨ Improve explanations
-✨ Add more topics (data loaders, CNNs, etc.)
-
-Then feel free to open a **Pull Request** or issue.
-
----
-
-## 📫 Contact
-
-If you want to connect:
-
-**GitHub:** [https://github.com/sujal910](https://github.com/sujal910)
-**YouTube video I'm following:** [https://youtu.be/V_xro1bcAuA](https://youtu.be/V_xro1bcAuA)
-
----
-
-Happy learning PyTorch! 🧠🔥
+This repo follows the **PyTorch for Deep Learning** curriculum:
 
 ```
+Tensors → Training Workflow → Neural Networks → CNNs → Transfer Learning
+```
 
+Each section builds on the previous one — start from `01_Tensors/` if you're new.
+
+---
+
+## 📌 Notes
+
+- Notebooks are written using **PyTorch 2.x** — older versions may have minor API differences
+- GPU is optional; all notebooks run on CPU by default
+- Extra_Resources contains supplementary material (matplotlib, etc.) that supports the main series
+
+---
+
+<div align="center">
+
+**Made with ❤️ while learning ML from scratch**
+
+⭐ Star this repo if it helps you on your own learning journey!
+
+</div>
